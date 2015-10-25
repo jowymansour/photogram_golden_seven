@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Photogram</title>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+  <head>
+    <title>Photogram</title>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 
-  <!-- Connect to Bootstrap CSS -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Connect to Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-  <!-- Connect to Font Awesome CSS -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Connect to Font Awesome CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-  <!-- Connect to Bootstrap Javascript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- Connect to Bootstrap Javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-  <!-- Connect to custom CSS -->
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-</head>
-<body>
-  <% flash.each do |message_type, message| %>
-    <h4><%= message %></h4>
-  <% end %>
+    <!-- Connect to custom CSS -->
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  </head>
+  <body>
+    <%= render 'layouts/navbar' %>
 
-  <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>">
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
+      </div>
 
-</body>
+      <%= yield %>
+
+    </div>
+  </body>
 </html>

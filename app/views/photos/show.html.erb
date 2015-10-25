@@ -1,10 +1,22 @@
-<h1>Photo Details</h1>
-
-<img src="<%= @photo.source %>" width="720">
-
-<p><%= @photo.caption %></p>
-
-<a href="/photos">Back</a>
-<a href="/photos/<%= @photo.id %>/edit">Edit</a>
-<a href="/delete_photo/<%= @photo.id %>">Delete</a>
-
+<div class="row">
+  <div class="col-md-offset-1 col-md-10 well">
+  <h1>Photo Details</h1>
+    <div class="thumbnail">
+      <img alt="Pm" class="img-responsive" src="<%= @photo.source %>">
+      <div class="caption">
+        <p class="lead"><%= @photo.caption %></p>
+        <p>
+          <a class="btn btn-primary" href="/photos">
+            <i class="fa fa-arrow-left"></i>
+          </a>
+          <a class="btn btn-warning" href="/photos/<%= @photo.id %>/edit">
+            <i class="fa fa-edit"></i>
+          </a>
+          <a class="btn btn-danger" href="/delete_photo/<%= @photo.id %>">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
